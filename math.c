@@ -30,4 +30,6 @@ int main () {
     y = tan(y);
     printf("%.0f\n", y);
 
+    return 0;
+
 }

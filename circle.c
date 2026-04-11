@@ -11,7 +11,7 @@ int main () {
     printf("Radius (in cms): ");
     scanf("%lf", &radius);
 
-    area = PI * radius * pow(radius, 2);
+    area = PI  * pow(radius, 2);
     circumference = 2 * PI * radius;
 
     printf("Area: %f cms sq.\n", area);
