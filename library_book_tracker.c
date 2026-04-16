@@ -13,6 +13,7 @@ typedef struct {
 void margin();
 void detailPrinter(Book book);
 void title();
+int highestRatedIndex (Book book[], int size);
 
 int main () {
 
@@ -37,6 +38,10 @@ int main () {
 
     margin();
 
+    int highestIndex = highestRatedIndex(books,size);
+    printf("Highest Rated: %s (%.2f)\n", books[highestIndex].title, books[highestIndex].rating);
+
+
     return 0;    
 }
 
@@ -52,3 +57,12 @@ void detailPrinter(Book book) {
     printf("%s\nAuthor: %s\nYear:   %d\nRating: %.2f\nStatus: %s\n", book.title, book.author, book.year, book.rating, (book.isAvailable) ? "Available" : "Checked Out");
 } 
 
+int highestRatedIndex (Book book[], int size) {
+    int highest = 0;
+    for (int i = 1; i < size; i++) {
+        if (book[i].rating > book[highest].rating ) {
+            highest = i;
+        }
+    }
+    return highest;
+}
