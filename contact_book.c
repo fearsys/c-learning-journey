@@ -9,12 +9,8 @@ typedef struct {
     char email[30];
 } Contact;
 
-void removeNewline(char str[]) {
-    int len = strlen(str);
-    if (len > 0 && str[len - 1] == '\n') {
-        str[len - 1] = '\0';
-    }
-}
+void removeNewline(char str[]);
+void userInput(Contact contacts[], int size);
 
 int main () {
 
@@ -22,7 +18,20 @@ int main () {
 
     Contact contacts[CONTACT_SIZE] = {0};
 
-    for (int i = 0; i < CONTACT_SIZE; i++) {
+    userInput(contacts, CONTACT_SIZE);
+
+    return 0;
+}
+
+void removeNewline(char str[]) {
+    int len = strlen(str);
+    if (len > 0 && str[len - 1] == '\n') {
+        str[len - 1] = '\0';
+    }
+}
+
+void userInput(Contact contacts[], int size) {
+    for (int i = 0; i < size; i++) {
         printf("Name: ");
         fgets(contacts[i].name, sizeof(contacts[i].name), stdin);
         removeNewline(contacts[i].name);
@@ -32,8 +41,5 @@ int main () {
         printf("Email: ");
         fgets(contacts[i].email, sizeof(contacts[i].email), stdin);
         removeNewline(contacts[i].email);
-
     }
-
-    return 0;
 }
