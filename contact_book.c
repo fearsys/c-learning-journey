@@ -1,0 +1,39 @@
+#include <stdio.h>
+#include <string.h>
+
+#define CONTACT_SIZE 5
+
+typedef struct {
+    char name[30];
+    char phone[15];
+    char email[30];
+} Contact;
+
+void removeNewline(char str[]) {
+    int len = strlen(str);
+    if (len > 0 && str[len - 1] == '\n') {
+        str[len - 1] = '\0';
+    }
+}
+
+int main () {
+
+    // Store up to 5 contacts via user input
+
+    Contact contacts[CONTACT_SIZE] = {0};
+
+    for (int i = 0; i < CONTACT_SIZE; i++) {
+        printf("Name: ");
+        fgets(contacts[i].name, sizeof(contacts[i].name), stdin);
+        removeNewline(contacts[i].name);
+        printf("Phone: ");
+        fgets(contacts[i].phone, sizeof(contacts[i].phone), stdin);
+        removeNewline(contacts[i].phone);
+        printf("Email: ");
+        fgets(contacts[i].email, sizeof(contacts[i].email), stdin);
+        removeNewline(contacts[i].email);
+
+    }
+
+    return 0;
+}
