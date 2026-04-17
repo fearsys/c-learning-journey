@@ -11,14 +11,19 @@ typedef struct {
 
 void removeNewline(char str[]);
 void userInput(Contact contacts[], int size);
+void headerPrinter();
+void contactPrinter(Contact contacts[], int size);
+void columnPrinter();
 
 int main () {
 
     // Store up to 5 contacts via user input
 
     Contact contacts[CONTACT_SIZE] = {0};
-
     userInput(contacts, CONTACT_SIZE);
+    headerPrinter();
+    columnPrinter();
+    contactPrinter(contacts, CONTACT_SIZE);
 
     return 0;
 }
@@ -42,4 +47,20 @@ void userInput(Contact contacts[], int size) {
         fgets(contacts[i].email, sizeof(contacts[i].email), stdin);
         removeNewline(contacts[i].email);
     }
+}
+
+void headerPrinter() {
+    printf("====================================================\n");
+    printf("                   CONTACT LIST\n");
+    printf("====================================================\n");
+}
+
+void contactPrinter(Contact contacts[], int size) {
+    for (int i = 0; i < size; i++) {
+        printf("%d. %-30s %-15s %-30s\n", i+1, contacts[i].name, contacts[i].phone, contacts[i].email);
+    }
+}
+
+void columnPrinter() {
+    printf("SL.            NAME                   PHONE                EMAIL\n");
 }
