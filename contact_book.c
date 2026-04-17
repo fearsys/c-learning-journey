@@ -64,7 +64,7 @@ void contactPrinter(Contact contacts[], int size) {
 }
 
 void columnPrinter() {
-    printf("SL.            NAME                   PHONE                EMAIL\n");
+    printf("%-4s %-30s %-15s %-30s\n", "SL.", "NAME", "PHONE", "EMAIL");
 }
 
 void margin() {
@@ -76,6 +76,7 @@ void searchContact(Contact contacts[], int size) {
     printf("Enter name to search: ");
     fgets(query, sizeof(query), stdin);
     removeNewline(query);
+    
 
     for (int i = 0; i < size; i++) {
         if (strcmp(contacts[i].name, query) == 0) {
