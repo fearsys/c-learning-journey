@@ -1,0 +1,63 @@
+#include <stdio.h>
+#include <string.h>
+
+#define SIZE 1
+
+typedef struct {
+    char name[30];
+    int age;
+    float grades[3]; // Math, Science, English
+    float average;
+} Student;
+
+void input(Student student[], int size);
+void removeNewline(char str[]);
+float average(Student student[]);
+
+int main () {
+
+    Student student[SIZE] = {0};
+
+    input(student, SIZE);
+   
+
+    return 0;
+
+}
+
+void input(Student student[], int size) {
+    
+    for (int i = 0; i < SIZE; i++) {
+        printf("Name: ");
+        fgets(student[i].name, sizeof(student[i].name), stdin);
+        removeNewline(student[i].name);
+
+        printf("Age: ");
+        scanf("%d", &student[i].age);
+
+        for (int j = 0; j < 3; j ++) {
+            printf("Grade (%s): ",(j == 0) ? "MATH" : (j == 1) ? "SCIENCE" : "ENGLISH");
+            scanf("%f", &student[i].grades[j]);
+        }
+        student[i].average = average(student);
+        getchar();
+    }
+}
+
+void removeNewline(char str[]) {
+    int len = strlen(str);
+    if (len > 0 && str[len - 1] == '\n') {
+        str[len - 1] = '\0';
+    }
+}
+
+float average(Student student[]) {
+    float sum = 0.0f;
+    for (int i = 0; i < 3 ; i++) {
+        sum += student->grades[i];
+    }
+    float avg = sum / 3.0f;
+    return avg;
+}
+
+
