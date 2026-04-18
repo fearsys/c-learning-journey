@@ -65,9 +65,10 @@ void table (Student student[], int size) {
     printf("--------------------------------------------------\n");
     printf("                STUDENT REPORT\n");
     printf("--------------------------------------------------\n");
-    printf("%-3s %-30s %-5s %-5s %-5s %-5s %-5s\n", "NO.", "NAME", "AGE", "MATH", "SCI", "ENG", "AVG");
+    printf("%-3s %-30s %-5s %-5s %-5s %-5s %-5s %-8s\n", "NO.", "NAME", "AGE", "MATH", "SCI", "ENG", "AVG", "REMARKS");
     for (int i = 0; i < size; i++ ) {
-        printf("%-3d %-30s %-5d %-5.2f %-5.2f %-5.2f %-5.2f", i+1, student[i].name, student[i].age, student[i].grades[0], student[i].grades[1], student[i].grades[2], student[i].average);
+        printf("%-3d %-30s %-5d %-5.2f %-5.2f %-5.2f %-5.2f %-8s", i+1, student[i].name, student[i].age, student[i].grades[0], student[i].grades[1], student[i].grades[2], student[i].average, (student[i].average >= 60)? "PASS" : "FAIL");
+        
     }
 }
 
