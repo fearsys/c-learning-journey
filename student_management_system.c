@@ -13,13 +13,14 @@ typedef struct {
 void input(Student student[], int size);
 void removeNewline(char str[]);
 float average(Student student[]);
+void table (Student student[], int size);
 
 int main () {
 
     Student student[SIZE] = {0};
-
+    
     input(student, SIZE);
-   
+    table (student,SIZE);
 
     return 0;
 
@@ -60,4 +61,13 @@ float average(Student student[]) {
     return avg;
 }
 
+void table (Student student[], int size) {
+    printf("--------------------------------------------------\n");
+    printf("                STUDENT REPORT\n");
+    printf("--------------------------------------------------\n");
+    printf("%-3s %-30s %-5s %-5s %-5s %-5s %-5s\n", "NO.", "NAME", "AGE", "MATH", "SCI", "ENG", "AVG");
+    for (int i = 0; i < size; i++ ) {
+        printf("%-3d %-30s %-5d %-5.2f %-5.2f %-5.2f %-5.2f", i+1, student[i].name, student[i].age, student[i].grades[0], student[i].grades[1], student[i].grades[2], student[i].average);
+    }
+}
 
