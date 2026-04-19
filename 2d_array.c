@@ -14,7 +14,7 @@ int main () {
     int num [] [3] = {{1,2,3}}; // int num [] [] = {{1,2,3}}; will not work we have to specify the size of columns
 
     printf("%d\n", num[0][2]); // prints 3 
-    printf("%d\n", num[0][3]); // prints garbage value
+    // printf("%d\n", num[0][3]); // prints garbage value
     marginer();
  
     
