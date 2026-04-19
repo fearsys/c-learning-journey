@@ -18,14 +18,15 @@ int main () {
     marginer();
  
     
-    char dialPad [][4] = {{'7', '8', '9'}, {'4', '5', '6'}, {'1', '2', '3'}, {'#', '.', '*'}};
+    char dialPad [][3] = {{'7', '8', '9'}, {'4', '5', '6'}, {'1', '2', '3'}, {'#', '.', '*'}};
 
     for(int i = 0; i < sizeof(dialPad)/ sizeof(dialPad[0]); i++) {
         for (int j = 0; j < sizeof(dialPad[0]) / sizeof(dialPad[0][0]); j++) {
-            printf("%c ",dialPad[i][j]);
+            printf("[%c] ",dialPad[i][j]);
         }
         printf("\n");
     }
+    marginer();
 
     return 0;
 }
