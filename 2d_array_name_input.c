@@ -1,6 +1,13 @@
 #include <stdio.h>
 #include <string.h>
 
+void removeNewline(char str[]) {
+    int len = strlen(str);
+    if (len > 0 && str[len - 1] == '\n') {
+        str[len - 1] = '\0';
+    }
+}
+
 int main () {
 
     char name[3][10] = {0};
@@ -9,7 +16,7 @@ int main () {
     for (int i = 0; i < rows; i++) {
         printf("Enter Name: ");
         fgets(name[i], sizeof(name[i]), stdin);
-        name[i][strlen(name[i]) - 1] = '\0';
+        removeNewline(name[i]); 
     }
     
     for (int i = 0; i < rows; i++) {
